@@ -1,0 +1,259 @@
+## ТОРГОВАЯ БАЗА
+
+<Grid>
+        <Grid>
+            <StackPanel Margin="0 20 0 0">
+
+
+                <TextBlock Text="Название товара"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0"/>
+                <TextBox x:Name="Prod"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Width="300"
+                       Margin="0 10 0 0"/>
+
+                <TextBlock Text="Поставщик"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0"/>
+                <TextBox x:Name="Post"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Width="300"
+                       Margin="0 10 0 0"/>
+
+                <TextBlock Text="Дата поставки"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0"/>
+                <DatePicker x:Name="DatePost"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Width="300"
+                       Margin="0 10 0 0"/>
+
+                <TextBlock Text="Телефон поставщика"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0"/>
+                <TextBox x:Name="TbPhone"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Width="300"
+                       Margin="0 10 0 0"/>
+                <Button x:Name="BtnAdd"
+                    Width="150"
+                    Height="50"
+                    Margin="0 10 0 0"
+                    Content="Добавить"
+                    FontSize="20" Click="BtnAdd_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+
+public MainWindow()
+        {
+            InitializeComponent();
+        }
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(Prod.Text))
+            {
+                MessageBox.Show("Заполните поле с названием товара");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(Post.Text))
+            {
+                MessageBox.Show("Заполните поле с поставщиком");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(DatePost.Text))
+            {
+                MessageBox.Show("Выбирите дату поставки");
+                return;
+            }
+            bool result = int.TryParse(TbPhone.Text, out var num);
+            if (result != true || Convert.ToInt32(TbPhone.Text) < 0)
+            {
+                MessageBox.Show("Заполните поле с телефоном правильно");
+                return;
+            }
+            else
+
+                MessageBox.Show("всё по кайфу");
+
+        }
+
+    }
+}
+
+## ЗАПИСЬ В САЛОН КРАСОТЫ
+
+  <Grid>
+        <Grid>
+            <StackPanel Margin="0 20 0 0">
+
+
+                <TextBlock Text="Имя"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0"/>
+                <TextBox x:Name="TbFName"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Width="300"
+                       Margin="0 10 0 0"/>
+
+                <TextBlock Text="Фамилия"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0"/>
+                <TextBox x:Name="TbLName"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Width="300"
+                       Margin="0 10 0 0"/>
+
+                <TextBlock Text="Отчество"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0"/>
+                <TextBox x:Name="TbMName"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Width="300"
+                       Margin="0 10 0 0"/>
+
+                <TextBlock Text="Телефон"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0"/>
+                <TextBox x:Name="TbPhone"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Width="300"
+                       Margin="0 10 0 0"/>
+
+                <TextBlock Text="Почта"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0"/>
+                <TextBox x:Name="TbMail"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Width="300"
+                       Margin="0 10 0 0"/>
+                <TextBlock Text="Услуги"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0"/>
+                <ComboBox x:Name="CmbUsl" Width="150"
+                      Height="50"
+                      Margin="0 10 0 0"
+                      FontSize="20">
+                    <ComboBoxItem Tag="Mani" Content="Маникюр" FontSize="20"/>
+                    <ComboBoxItem Tag="Pedi" Content="Педикюр" FontSize="20"/>
+                    <ComboBoxItem Tag="Mask" Content="Маска" FontSize="20"/>
+                    <ComboBoxItem Tag="AllUsl" Content="Все услуги" FontSize="20"/>
+                </ComboBox>
+
+                <Button x:Name="BtnAdd"
+                    Width="150"
+                    Height="50"
+                    Margin="0 10 0 0"
+                    Content="Добавить"
+                    FontSize="20" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+
+
+## ОКНО ВЫВОДА КЛИЕНТОВ ЮВЕЛИРНЫЙ САЛОН
+
+<Grid Margin="0,10,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="36*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="202*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="TbDate"
+                   FontSize="20"
+                   HorizontalAlignment="Left" Margin="0,0,0,567" Grid.RowSpan="2" Width="0"/>
+        <TextBlock x:Name="TbTime"
+                   FontSize="200"
+                   HorizontalAlignment="Left" Grid.Column="3" Margin="488,0,0,567" Grid.RowSpan="2" Width="0"/>
+        <ListView x:Name="LvList" Grid.Row="1" Grid.ColumnSpan="4" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Height="200" Width="250" Background="AliceBlue">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image x:Name="Img"
+                                   Height="100"
+                                   Width="100">
+                                <Image.Source>
+                                    <Binding Path="photo">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>
+                                                C:\Users\Гришка\source\repos\WpfApp17\WpfApp17\Res\pa6Tle3r34rj6-r6Q.jpg
+                                            </ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding title}" Margin="0 20 0 0" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding phone}" Margin="0 20 0 0" HorizontalAlignment="Center"/>
+
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </Grid>
+MainWindow.xaml.cs
+
+  public MainWindow()
+        {
+            InitializeComponent();
+            TbDate.Text = "  Клиент создан  " + Convert.ToString(DateTime.Now);
+            LvList.ItemsSource = lawyers;
+
+        }
+ClassHelper
+
+        public static List<ClassLawyer> lawyers = new List<ClassLawyer>
+        {
+            new ClassLawyer (){title = "Грибко Никита Александрович",phone="75475477567"},
+            new ClassLawyer(){title="Скуфендий Сёма Батькович",phone="79003587479"}
+        };
+    
+
+    
+ClassLawyer
+
+  internal class ClassLawyer
+    {
+        public string title { get; set; }
+        public string photo { get; set; }
+        public string phone { get; set; }
+    }
+
+
+
+
+
